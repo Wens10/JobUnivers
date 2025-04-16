@@ -1,0 +1,144 @@
+:root {
+    --primary-color: #1f3f68;
+    --secondary-color: #00d2a8;
+    --radius: 8px;
+  }
+  
+  /* Conteneur général */
+  .auth-container {
+    max-width: 500px;
+    margin: 4em auto;
+    background: white;
+    padding: 2em;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+  
+  /* Onglets d'inscription */
+  .auth-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+  }
+  
+  .tab-btn {
+    flex: 1;
+    padding: 0.8em;
+    background: #eee;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  
+  .tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  /* Formulaires */
+  .auth-form {
+    display: none;
+    flex-direction: column;
+  }
+  
+  .auth-form.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .auth-form h2 {
+    text-align: center;
+    color: var(--primary-color);
+  }
+  
+  .auth-form label {
+    font-weight: 600;
+  }
+  
+  .auth-form input,
+  .auth-form select {
+    padding: 0.8em;
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    font-size: 1em;
+  }
+  
+  .auth-form button {
+    margin-top: 1em;
+    padding: 0.8em;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .auth-form button:hover {
+    background: #00b285;
+  }
+  
+  /* Liens entre Connexion <-> Inscription */
+  .auth-link {
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 0.9em;
+  }
+  
+  .auth-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .auth-link a:hover {
+    text-decoration: underline;
+  }
+  
+
+
+  /* Transitions entre formulaires */
+.auth-form {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.auth-form.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* Boutons plus interactifs */
+.auth-form button,
+.tab-btn {
+  transition: all 0.3s ease;
+}
+
+/* Focus stylé */
+.auth-form input:focus,
+.auth-form select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(31, 63, 104, 0.2);
+}
+@media (max-width: 600px) {
+  .auth-container {
+    padding: 1.5em;
+    margin: 2em 1em;
+  }
+
+  .auth-tabs {
+    flex-direction: column;
+  }
+
+  .tab-btn {
+    border-radius: var(--radius);
+    margin-bottom: 0.5em;
+  }
+}
